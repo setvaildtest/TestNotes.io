@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://setvaildtest.github.io/</id>
+    <id>https://setvaildtest.github.io/TestNotes.io</id>
     <title>TestNotes</title>
-    <updated>2020-09-29T03:44:49.908Z</updated>
+    <updated>2020-09-29T03:49:43.036Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://setvaildtest.github.io/"/>
-    <link rel="self" href="https://setvaildtest.github.io/atom.xml"/>
+    <link rel="alternate" href="https://setvaildtest.github.io/TestNotes.io"/>
+    <link rel="self" href="https://setvaildtest.github.io/TestNotes.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://setvaildtest.github.io/images/avatar.png</logo>
-    <icon>https://setvaildtest.github.io/favicon.ico</icon>
+    <logo>https://setvaildtest.github.io/TestNotes.io/images/avatar.png</logo>
+    <icon>https://setvaildtest.github.io/TestNotes.io/favicon.ico</icon>
     <rights>All rights reserved 2020, TestNotes</rights>
     <entry>
         <title type="html"><![CDATA[git基本命令速查]]></title>
-        <id>https://setvaildtest.github.io/post/git-ji-ben-ming-ling-su-cha/</id>
-        <link href="https://setvaildtest.github.io/post/git-ji-ben-ming-ling-su-cha/">
+        <id>https://setvaildtest.github.io/TestNotes.io/post/git-ji-ben-ming-ling-su-cha/</id>
+        <link href="https://setvaildtest.github.io/TestNotes.io/post/git-ji-ben-ming-ling-su-cha/">
         </link>
         <updated>2018-05-16T03:26:52.000Z</updated>
         <content type="html"><![CDATA[<h3 id="描述">描述</h3>
