@@ -1,0 +1,238 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>git基本命令速查 | TestNotes</title>
+<link rel="shortcut icon" href="https://github.com/setvaildtest/TestNotes.io/favicon.ico?v=1601350061905">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://github.com/setvaildtest/TestNotes.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="git基本命令速查 | TestNotes - Atom Feed" href="https://github.com/setvaildtest/TestNotes.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="描述
+环境：Windows 10
+针对git代码版本管理的基本使用，包含使用过程中遇到的问题，加以整理，解决。
+如何关联远端仓库
+如果你在github，gitlab，以及码云，有对应的项目仓库，并且需要在本地关联，那么在本地的目录执行：
+#..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://github.com/setvaildtest/TestNotes.io">
+  <img class="avatar" src="https://github.com/setvaildtest/TestNotes.io/images/avatar.png?v=1601350061905" alt="">
+  </a>
+  <h1 class="site-title">
+    TestNotes
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              git基本命令速查
+            </h2>
+            <div class="post-info">
+              <span>
+                2018-05-16
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="描述">描述</h3>
+<p>环境：Windows 10</p>
+<p>针对git代码版本管理的基本使用，包含使用过程中遇到的问题，加以整理，解决。</p>
+<h3 id="如何关联远端仓库">如何关联远端仓库</h3>
+<p>如果你在github，gitlab，以及码云，有对应的项目仓库，并且需要在本地关联，那么在本地的目录执行：</p>
+<pre><code># 初始化仓库
+git init
+# 克隆对应的项目
+git clone https://github.com/setvaildtest/TestNotes.io.git
+# 配置全局用户变量
+git config --global user.name &quot;xxxx&quot;
+git config --global user.email &quot;xx@xxx&quot;
+# 生成ssh（生成过程中需要确认3-4次，一直enter）
+cd ~/.ssh
+ssh-keygen -t rsa -C &quot;xx@xxx&quot;
+# github关联ssh_key
+&gt; 生成后会在~/.ssh目录出现两个文件，id_rsa,id_rsa.pub,需要把id_rsa.pub内容放在对应的远端，以github为例，如图
+图片稍后补充
+</code></pre>
+<h3 id="全局配置查看移除">全局配置查看/移除</h3>
+<pre><code># 查看全局配置
+git config --list
+# 移除全局配置
+git config --global --unset 配置名
+</code></pre>
+<h3 id="解决git-clone速度慢">解决git clone速度慢</h3>
+<p>有时候git clone项目基本都是几K，几十K，经常会失败，这是后就需要设置代理，我以shadowsocks为例</p>
+<pre><code># 配置代理
+&gt; 由于我使用代理的http和https的端口为1086，所以可以设置针对http和https的全局代理，端口可以在对应vpn客户端的高级设置找到，如图：
+稍后补充
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1086
+
+</code></pre>
+<h3 id="增加提交">增加，提交</h3>
+<p>git分为工作区，暂存区，版本库，以及远端仓库</p>
+<pre><code># 修改文件内容，提交到暂存区
+# 单个文件提交
+git add 文件名
+# 所有文件提交
+git add *
+# 提交到版本库
+git commit -m &quot;修改内容描述&quot;
+</code></pre>
+<h3 id="查看提交历史">查看提交历史</h3>
+<pre><code># 查看所有提交历史
+git log
+# 查看指定作者提交
+git log --作者名
+# 查看指定时间提交（两周内或固定时间）
+git log --since=2.weeks  /  &quot;2008-10-01&quot;
+</code></pre>
+<h3 id="关联远端仓库">关联远端仓库</h3>
+<pre><code># 本地仓库，关联远端仓库
+git remote add origin https://github.com/setvaildtest/TestNotes.io.git
+</code></pre>
+<h3 id="推送本地至远端库">推送本地至远端库</h3>
+<pre><code># 推送本地至远端库
+git push origin master
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%8F%8F%E8%BF%B0">描述</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%85%B3%E8%81%94%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93">如何关联远端仓库</a></li>
+<li><a href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%9F%A5%E7%9C%8B%E7%A7%BB%E9%99%A4">全局配置查看/移除</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3git-clone%E9%80%9F%E5%BA%A6%E6%85%A2">解决git clone速度慢</a></li>
+<li><a href="#%E5%A2%9E%E5%8A%A0%E6%8F%90%E4%BA%A4">增加，提交</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">查看提交历史</a></li>
+<li><a href="#%E5%85%B3%E8%81%94%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93">关联远端仓库</a></li>
+<li><a href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E8%87%B3%E8%BF%9C%E7%AB%AF%E5%BA%93">推送本地至远端库</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://github.com/setvaildtest/TestNotes.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

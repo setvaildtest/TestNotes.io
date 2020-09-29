@@ -1,45 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/setvaildtest/TestNotes.io</id>
-    <title>Gridea</title>
-    <updated>2020-09-29T03:05:43.589Z</updated>
+    <title>TestNotes</title>
+    <updated>2020-09-29T03:27:45.853Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/setvaildtest/TestNotes.io"/>
     <link rel="self" href="https://github.com/setvaildtest/TestNotes.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://github.com/setvaildtest/TestNotes.io/images/avatar.png</logo>
     <icon>https://github.com/setvaildtest/TestNotes.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, TestNotes</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://github.com/setvaildtest/TestNotes.io/post/hello-gridea/</id>
-        <link href="https://github.com/setvaildtest/TestNotes.io/post/hello-gridea/">
+        <title type="html"><![CDATA[git基本命令速查]]></title>
+        <id>https://github.com/setvaildtest/TestNotes.io/post/git-ji-ben-ming-ling-su-cha/</id>
+        <link href="https://github.com/setvaildtest/TestNotes.io/post/git-ji-ben-ming-ling-su-cha/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... 111</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... 111</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <updated>2018-05-16T03:26:52.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="描述">描述</h3>
+<p>环境：Windows 10</p>
+<p>针对git代码版本管理的基本使用，包含使用过程中遇到的问题，加以整理，解决。</p>
+<h3 id="如何关联远端仓库">如何关联远端仓库</h3>
+<p>如果你在github，gitlab，以及码云，有对应的项目仓库，并且需要在本地关联，那么在本地的目录执行：</p>
+<pre><code># 初始化仓库
+git init
+# 克隆对应的项目
+git clone https://github.com/setvaildtest/TestNotes.io.git
+# 配置全局用户变量
+git config --global user.name &quot;xxxx&quot;
+git config --global user.email &quot;xx@xxx&quot;
+# 生成ssh（生成过程中需要确认3-4次，一直enter）
+cd ~/.ssh
+ssh-keygen -t rsa -C &quot;xx@xxx&quot;
+# github关联ssh_key
+&gt; 生成后会在~/.ssh目录出现两个文件，id_rsa,id_rsa.pub,需要把id_rsa.pub内容放在对应的远端，以github为例，如图
+图片稍后补充
+</code></pre>
+<h3 id="全局配置查看移除">全局配置查看/移除</h3>
+<pre><code># 查看全局配置
+git config --list
+# 移除全局配置
+git config --global --unset 配置名
+</code></pre>
+<h3 id="解决git-clone速度慢">解决git clone速度慢</h3>
+<p>有时候git clone项目基本都是几K，几十K，经常会失败，这是后就需要设置代理，我以shadowsocks为例</p>
+<pre><code># 配置代理
+&gt; 由于我使用代理的http和https的端口为1086，所以可以设置针对http和https的全局代理，端口可以在对应vpn客户端的高级设置找到，如图：
+稍后补充
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1086
+
+</code></pre>
+<h3 id="增加提交">增加，提交</h3>
+<p>git分为工作区，暂存区，版本库，以及远端仓库</p>
+<pre><code># 修改文件内容，提交到暂存区
+# 单个文件提交
+git add 文件名
+# 所有文件提交
+git add *
+# 提交到版本库
+git commit -m &quot;修改内容描述&quot;
+</code></pre>
+<h3 id="查看提交历史">查看提交历史</h3>
+<pre><code># 查看所有提交历史
+git log
+# 查看指定作者提交
+git log --作者名
+# 查看指定时间提交（两周内或固定时间）
+git log --since=2.weeks  /  &quot;2008-10-01&quot;
+</code></pre>
+<h3 id="关联远端仓库">关联远端仓库</h3>
+<pre><code># 本地仓库，关联远端仓库
+git remote add origin https://github.com/setvaildtest/TestNotes.io.git
+</code></pre>
+<h3 id="推送本地至远端库">推送本地至远端库</h3>
+<pre><code># 推送本地至远端库
+git push origin master
+</code></pre>
 ]]></content>
     </entry>
 </feed>
